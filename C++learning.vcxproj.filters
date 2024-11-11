@@ -18,5 +18,13 @@
     <ClCompile Include="C++learning.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="phone.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Phone.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,13 +2,25 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <ctime>
+#include "Phone.h"
 using namespace std;
-void maopaopaixu();
-void yiweishuzu();
+
+struct Student
+{
+	string name;
+	double score;
+};
+struct Teacher
+{
+	string name;
+	Student stu[5];
+};
+void teacher_init(Teacher t[], int len);
+void printInfo(const Teacher* t);
 int main()
 {
-	maopaopaixu();
-	return 0;
+	window();
 }
 void shuixianhua() {
 	vector<int> num;
@@ -67,5 +79,36 @@ void maopaopaixu() {
 		cout << i << "  ";
 
 }
+void shuzuhanshu(int* p, int len) {
+	for (int i = len-1; i >=1; i--) {
+		for (int j = 0; j <= i - 1; j++) {
+			if (p[j] < p[j + 1]) {
+				int b = p[j];
+				p[j] = p[j + 1];
+				p[j + 1] = b;
+			}
+		}
+	}
+}
+void teacher_init(Teacher t[], int len) {
+	string nameadd = "ABCDEFG";
+	for (int i = 0; i < len; i++){
+		t[i].name = "Teacher_";
+		t[i].name += nameadd[i];
+		for (int j = 0; j < 5; j++) {
+			t[i].stu[j].name = "Student_";
+			t[i].stu[j].name += nameadd[j];
+			int random = rand()%20+80;
+			t[i].stu[j].score = random;
+		}
+	}
+}
+void printInfo(const Teacher *t){
+	cout << t->name << endl;
+	for (int i=0;i<5;i++){
+		cout << "--------" << (*t).stu[i].name << "  " << (*t).stu[i].score << endl;
+	}
+}
+
 
 
